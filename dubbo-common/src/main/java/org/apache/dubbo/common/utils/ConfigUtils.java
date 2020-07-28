@@ -148,6 +148,7 @@ public class ConfigUtils {
         if (PROPERTIES == null) {
             synchronized (ConfigUtils.class) {
                 if (PROPERTIES == null) {
+                    //双重检查保证单例
                     String path = System.getProperty(CommonConstants.DUBBO_PROPERTIES_KEY);
                     if (path == null || path.length() == 0) {
                         path = System.getenv(CommonConstants.DUBBO_PROPERTIES_KEY);
