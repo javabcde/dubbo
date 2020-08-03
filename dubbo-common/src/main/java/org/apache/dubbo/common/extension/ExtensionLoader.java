@@ -694,8 +694,10 @@ public class ExtensionLoader<T> {
 
                 try {
                     String property = getSetterProperty(method);
+                    //拿到需要注入的实例
                     Object object = objectFactory.getExtension(pt, property);
                     if (object != null) {
+                        //调用方法执行注入
                         method.invoke(instance, object);
                     }
                 } catch (Exception e) {
